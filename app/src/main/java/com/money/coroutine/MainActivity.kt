@@ -40,22 +40,8 @@ class MainActivity : AppCompatActivity() {
 
             lifecycleScope.launchWhenStarted {
                 timerStateFlow.TimerStateFlow.collect {
-                    Text.text = it.toString()
+                    Text.text = it
                 }
             }
-
-        if (Text.text.equals(10)) {
-            GlobalScope.launch(Dispatchers.Main) {
-               plusNumber()
-            }
-        }
-
     }
-
-    private suspend fun plusNumber() {
-        for (i in 11..20) {
-            Text.text = i.toString()
-        }
-    }
-
 }
